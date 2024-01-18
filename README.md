@@ -2,6 +2,8 @@
 
 This repository demonstrates using [unison-nix](https://github.com/ceedubs/unison-nix/) to easily package an app written in Unison.
 
+[![asciicast](https://asciinema.org/a/6QgQOL7Wtw8hUAkNjt7RuEy2k.svg)](https://asciinema.org/a/6QgQOL7Wtw8hUAkNjt7RuEy2k)
+
 ## Running the app
 
 ```sh
