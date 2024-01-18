@@ -19,14 +19,14 @@
           };
         in
         rec {
-          packages = rec {
+          packages = {
 
             # A simple example: create an executable from a Unison Share project
-            hello-server = pkgs.buildUnisonShareProject {
-              pname = "hello-server";
-              version = "3.0.2";
-              userHandle = "unison";
-              projectName = "httpserver";
+            snake = pkgs.buildUnisonShareProject {
+              pname = "snake";
+              version = "0.0.1";
+              userHandle = "runarorama";
+              projectName = "terminus";
               # The compiledHash is the hash of the compiled Unison code. This
               # is needed because Nix builds restrict network access unless the
               # output hash is known ahead of time (which helps with
@@ -34,53 +34,16 @@
               # the derivation for the first time. You can just set this to
               # `pkgs.lib.fakeHash` and do a `nix build` or `nix run` and copy
               # the hash labeled "got: `.
-              compiledHash = "sha256-RyhyK36dYx2tla1aTq6VsyBdQWJJFaUNhnP0Kzz6Mf0=";
-              executables = { "hello-server" = "example.main"; };
+              compiledHash = "sha256-sgWoyasMIv3li4njeA8XS75mizJ32RZJ3RBxgnvo2g0=";
+              executables = { "snake" = "examples.snake.main"; };
             };
 
-            # A lower-level example: create executables from a Unison transcript
-            hello-world = pkgs.buildUnisonFromTranscript rec {
-              pname = "hello-world";
-              version = "0.0.1";
-
-              src = builtins.toFile "pull-and-compile-${pname}-${version}.md" ''
-                ```ucm
-                .> project.create-empty hello-world
-                hello-world/main> pull @unison/base/releases/2.10.0 lib.base_2_10_0
-                ```
-
-                ```unison
-                main = do
-                  printLine "Hello, world!"
-
-                greet = do
-                  printLine "What is your name?"
-                  name = !readLine
-                  printLine ("Hello, " ++ name ++ "!")
-                ```
-
-                ```ucm
-                hello-world/main> add
-                hello-world/main> compile main hello-world
-                hello-world/main> compile greet greet
-                ```
-              '';
-
-              compiledHash = "sha256-LomYouMzvhjtUNPzmucgr0talrC9YdAGFy0aCdnyW6w="; 
-            };
           };
 
           apps = rec {
-            hello-server = flake-utils.lib.mkApp { drv = packages.hello-server; };
+            snake = flake-utils.lib.mkApp { drv = packages.snake; };
 
-            hello-world = flake-utils.lib.mkApp { drv = packages.hello-world; };
-
-            greet = flake-utils.lib.mkApp {
-              drv = packages.hello-world;
-              name = "greet";
-            };
-
-            default = greet;
+            default = snake;
           };
         }
       );
