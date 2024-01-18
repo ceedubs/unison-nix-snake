@@ -27,6 +27,7 @@
               version = "0.0.1";
               userHandle = "runarorama";
               projectName = "terminus";
+
               # The compiledHash is the hash of the compiled Unison code. This
               # is needed because Nix builds restrict network access unless the
               # output hash is known ahead of time (which helps with
@@ -35,12 +36,15 @@
               # `pkgs.lib.fakeHash` and do a `nix build` or `nix run` and copy
               # the hash labeled "got: `.
               compiledHash = "sha256-sgWoyasMIv3li4njeA8XS75mizJ32RZJ3RBxgnvo2g0=";
+
+              # A mapping of executable names to Unison functions.
               executables = { "snake" = "examples.snake.main"; };
             };
 
           };
 
           apps = rec {
+            # If your executable name isn't the same as your `pname`, you should also supply `name` argument below.
             snake = flake-utils.lib.mkApp { drv = packages.snake; };
 
             default = snake;
