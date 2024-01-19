@@ -34,7 +34,7 @@
               # reproducibility and caching). You won't know it until you run
               # the derivation for the first time. You can just set this to
               # `pkgs.lib.fakeHash` and do a `nix build` or `nix run` and copy
-              # the hash labeled "got: `.
+              # the hash labeled `got: `.
               compiledHash = "sha256-sgWoyasMIv3li4njeA8XS75mizJ32RZJ3RBxgnvo2g0=";
 
               # A mapping of executable names to Unison functions.
