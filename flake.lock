@@ -114,11 +114,11 @@
         "unison": "unison"
       },
       "locked": {
-        "lastModified": 1706042448,
-        "narHash": "sha256-xbl+sOL2fb+ofNHCgp3jhLC2pU2MHqzbRKY0WhusbBs=",
+        "lastModified": 1706061535,
+        "narHash": "sha256-pP9JTHwV2Usf36gLGYeYyaCxDkJNSNwKTEL4JzWmXqo=",
         "owner": "ceedubs",
         "repo": "unison-nix",
-        "rev": "d665306306c3809d91d00d1414558e5f26f8eb8f",
+        "rev": "e039496a67059277a2fa9597b644ce8d7512c9cb",
         "type": "github"
       },
       "original": {
