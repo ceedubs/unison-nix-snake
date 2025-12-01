@@ -10,12 +10,6 @@ This repository demonstrates using [unison-nix](https://github.com/ceedubs/uniso
 nix run github:ceedubs/unison-nix-snake
 ```
 
-If you are on an ARM-based Mac (M1, etc) you may need to run the following (since Unison doesn't yet release ARM builds):
-
-```sh
-nix run --system x86_64-darwin github:ceedubs/unison-nix-snake
-```
-
 The first time that you run this, it will take a while to pull the project from Share. But Nix will cache the result and subsequent runs should be nearly instantaneous.
 
 ## Packaging your own Unison app with Nix

@@ -2,7 +2,7 @@
   description = "Examples of building a Unison program with Nix";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     flake-utils.url = "github:numtide/flake-utils";
     unison-nix.url = "github:ceedubs/unison-nix";
     unison-nix.inputs.nixpkgs.follows = "nixpkgs";
@@ -36,7 +36,7 @@
             # the derivation for the first time. You can just set this to
             # `pkgs.lib.fakeHash` and do a `nix build` or `nix run` and copy
             # the hash labeled `got: `.
-            compiledHash = "sha256-6EnFUI5+9Zmyt7kDUjIvYR6q0Q4Ps5lNENZhghYuJJ0=";
+            compiledHash = "sha256-LTsrtPRI9iaw1/1D9U770U3FFzCVLso9PtNF0xDRAaI=";
 
             # A mapping of executable names to Unison functions.
             executables = {"snake" = "examples.snake.main";};
